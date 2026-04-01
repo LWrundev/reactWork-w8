@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 
 export default function OrderLayout(params) {
     return <>
+    <div className="container py-4">
         <div className="row">
             <div className="col-2">
                 <h1>訂單資料</h1>
@@ -10,5 +11,6 @@ export default function OrderLayout(params) {
                 <Outlet/>
             </div>
         </div>
+    </div>
     </>
 }
