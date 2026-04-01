@@ -1,16 +1,12 @@
 
-export default function ImagesArrayInput({ control, register, watch, errors, rule,useFieldArray }) {
-    const { fields, append, remove } = useFieldArray({
-        control,
-        name: "imagesUrl"
-    });
+export default function ImagesArrayInput({ control, register, watch, errors, rule,fields, append, remove }) {
 
     return (
         <div className="card shadow-sm mb-3">
             <div className="card-body">
                 <label className="form-label fw-bold mb-3">副圖設定 (最多 5 張)</label>
                 
-                {fields.map((field, index) => {
+                {fields?.map((field, index) => {
                     const watchUrl = watch(`imagesUrl.${index}`);
                     const error = errors?.imagesUrl?.[index];
 

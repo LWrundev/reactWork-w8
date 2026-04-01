@@ -11,6 +11,7 @@ import OrderList from "../pages/fronted/OrderList";
 import OrderDetail from "../pages/fronted/OrderDetail";
 import AdminLayout from "../pages/admin/AdminLayout";
 import AdminProducts from "../pages/admin/AdminProducts";
+import NotFound from "../pages/NotFound";
 
 const routes = [
     {
@@ -22,11 +23,11 @@ const routes = [
                 element: <Home />
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <Login />
             },
             {
-                path: '/ProductList',
+                path: 'productList',
                 element: <FrontedLayout/>,
                 children:[
                     {
@@ -59,7 +60,7 @@ const routes = [
             },
 
             {
-                path: '/admin',
+                path: 'admin',
                 element: <AdminLayout/>,
                 children: [
                     {
@@ -68,6 +69,10 @@ const routes = [
                     }
                 ]
             },
+            {
+                path:'*',
+                element:<NotFound />
+            }
         ]
     }
 ]

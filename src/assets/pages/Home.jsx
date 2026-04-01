@@ -31,7 +31,7 @@ function Home(params) {
     },[])
 
     return <>
-        <section className="py-3">
+        <section className="container py-3">
             {
                 loading ? (
                     <ThreeDots

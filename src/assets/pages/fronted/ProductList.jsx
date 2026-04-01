@@ -70,30 +70,31 @@ export default function(){
     },[])
 
     return <>
-        <section className="py-3">
+        <section className="container py-5">
             <div className="row">
                 <div className="col">
-                    <div className="row row-cols-4 mb-4">
+                    <div className="row gy-3 mb-4">
                         {
                             productList.map((item)=>{
                                 return (
-                                    <div className="col" key={item.id}>
+                                    <div className="col-lg-4" key={item.id}>
                                         <div 
-                                            className="card border-0 rounded-3 bg-light" >
+                                          className="card h-100 border-0 rounded-3 bg-light" >
                                             <Link to={`/productlist/${item.id}`}
-                                                className="text-decoration-none">
+                                                className="text-decoration-none
+                                                 d-flex flex-column">
                                                 <img src={item.imageUrl} 
                                                     alt={item.title} 
                                                     className="rounded-top-3 w-100 object-fit-cover"
                                                     style={{height:'200px'}} />
-                                                <div className="card-body">
-                                                    <p className="card-title h5 fw-bold text-dark ">
+                                                <div className="card-body p-4 flex-grow-1">
+                                                    <p className="card-title h5 fw-bold text-dark  ">
                                                         {item.title}
                                                     </p>
-                                                    <p className="text-danger text-end m-0">${item.price}</p>
+                                                    <p className="text-danger text-end mt-auto mb-0">${item.price}</p>
                                                 </div>
                                             </Link>
-                                            <div className="p-2">
+                                            <div className="p-2 mt-auto">
                                                 <button type="button"
                                                     className="btn btn-primary w-100 fw-bold"
                                                     onClick={()=>postNewCart(item.id)}>
@@ -108,40 +109,40 @@ export default function(){
                         
                     </div>
                 </div>
-                <div className="col-2">
-                        <div>
-                            <h2 className="bg-info rounded-3 h5 fw-bold text-light text-center py-2">購物車</h2>
-                            <div className="d-flex flex-column gap-1 mb-2">
-                            {
-                                cartData.carts.length === 0 && (
-                                    <div className="card border-info">
-                                        <div className="card-body">
-                                            <h5 className="h6 text-info text-center m-0">購物車尚無商品</h5>
-                                        </div>
+                <div className="col-12">
+                    <div>
+                        <h2 className="bg-info rounded-3 h5 fw-bold text-light text-center py-2">購物車</h2>
+                        <div className="d-flex flex-column gap-1 mb-2">
+                        {
+                            cartData.carts.length === 0 && (
+                                <div className="card border-info">
+                                    <div className="card-body">
+                                        <h5 className="h6 text-info text-center m-0">購物車尚無商品</h5>
                                     </div>
-                                )
-                            }
-                            {
-                                cartData.carts.map((item)=>{
-                                    return (
-                                            <div className="card border-info" key={item.id}>
-                                                <div className="card-body">
-                                                    <h5 className="text-info fw-bold">{item.product.title}</h5>
-                                                    <span>$ {item.product.price}</span>
+                                </div>
+                            )
+                        }
+                        {
+                            cartData.carts.map((item)=>{
+                                return (
+                                        <div className="card border-info" key={item.id}>
+                                            <div className="card-body">
+                                                <h5 className="text-info fw-bold">{item.product.title}</h5>
+                                                <span>$ {item.product.price}</span>
 
-                                                </div>
                                             </div>
-                                    )
-                                })
-                                
-                            }
-                            </div>
-                            <div className="bg-info rounded-3 py-2">
-                                <Link to="/cart" className="d-block h5 fw-bold text-light text-center text-decoration-none m-0">
-                                查看更多
-                                </Link>
-                            </div>
+                                        </div>
+                                )
+                            })
+                            
+                        }
                         </div>
+                        <div className="bg-info rounded-3 py-2">
+                            <Link to="/cart" className="d-block h5 fw-bold text-light text-center text-decoration-none m-0">
+                            查看更多
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

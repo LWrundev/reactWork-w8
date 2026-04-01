@@ -26,6 +26,7 @@ export default function ProductDetail(params) {
     return <div>載入中...</div>;
     }
     return <>
+    <div className="container">
         <div className="row gy-3">
             <div className="col-lg-6">
                 <div className="card ">
@@ -66,5 +67,6 @@ export default function ProductDetail(params) {
                 </div>
             </div>
         </div>
+    </div>
     </>
 }
